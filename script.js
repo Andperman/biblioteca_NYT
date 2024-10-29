@@ -15,8 +15,6 @@ async function listaTematica() {
     data.results.forEach(list => {
       const listItem = document.createElement('div');
       listItem.className = 'list-item';
-      //El enlace contiene un atributo data-list con el nombre de la lista (list_name), 
-      //lo cual podría usarse más adelante para cargar los detalles de esa lista en particular.
       //atributo data-list , para guardar los datos de la lista de libros
       listItem.innerHTML =
         `
@@ -64,10 +62,10 @@ async function verLibros(listName) {
         bookItem.className = 'book-item';
         bookItem.innerHTML = `
                   <h4>#${index + 1} ${book.title}</h4>
-                  <p>Semanas en la lista: ${book.weeks_on_list}</p>
-                  <p>Descripción: ${book.description || 'No hay descripción disponible.'}</p>
+                  <p>Weeks on list: ${book.weeks_on_list}</p>
+                  <p>Description: ${book.description || 'No hay descripción disponible.'}</p>
                   <img src="${book.book_image}" alt="${book.title}" />
-                  <a href="${book.amazon_product_url}" target="_blank">Comprar en Amazon</a>
+                  <a href="${book.amazon_product_url}" target="_blank" class="buy-button" >Comprar en Amazon</a>
               `;
   
         bookGroup.appendChild(bookItem);
