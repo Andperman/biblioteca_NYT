@@ -141,9 +141,4 @@ main {
     margin-bottom: 20px;
 }
 
-@media (max-width: 768px) {
-    .list-item {
-        flex: 100%; 
-        max-width: 100%;
-    }
-}
+
