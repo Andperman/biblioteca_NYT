@@ -1,0 +1,149 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+header {
+    text-align: center; 
+    background-color: rgb(153, 184, 67); 
+    color: white;
+    padding: 10px 0; 
+    margin-bottom: 40px;;
+}
+
+h1 {
+    font-size: 80px;
+    font-family:"Comic Sans";
+    margin-bottom: 0 ;
+}
+
+.logo {
+    width: 300px; 
+    height: auto;
+    margin: 40px 0; 
+}
+
+nav {
+    background-color: hwb(72 96% 0%); 
+    padding: 25px;
+    font-size: 25px;
+    font-family:"Comic Sans" ;
+}
+
+nav ul {
+    list-style-type: none; 
+    padding: 0;
+    margin: 0; 
+    display: flex; 
+    justify-content: center; 
+}
+
+nav ul li {
+    margin: 0 15px; 
+}
+
+nav a {
+    text-decoration: none; 
+    color: #333; 
+    padding: 10px;
+}
+
+nav a:hover {
+    background-color: hsl(95, 55%, 69%); 
+    border-radius: 5px; 
+}
+
+main {
+    padding: 20px;
+}
+
+
+
+
+/* -----------------------------Temáticas -------------------------*/
+.booksContainer {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 40px; 
+    justify-content: space-between;
+    margin-left: 30px; 
+    margin-right: 30px; 
+}
+
+/* Cada temática */
+.list-item {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    flex: 400px;
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 15px 0;
+}
+
+ 
+.list-item:hover {
+    transform: translateY(-5px);
+}
+
+/* Título de temática */
+.list-item h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Línea de separación */
+.list-item hr {
+    border: 0;
+    height: 1px;
+    background-color: #ddd;
+    margin: 15px 0;
+}
+
+/* Estilo párrafos */
+.list-item p {
+    font-size: 20px;
+    color: #666;
+    margin: 7px 0;
+}
+
+/* Botón temática*/
+.READMORE {
+    display: inline-block;
+    font-family:"Comic Sans";
+    margin-top: 20px;
+    padding: 16px; 
+    background-color: hsl(211, 27%, 70%);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 20px;
+    transition: background-color 0.3s;
+    text-align: center;
+    width: 160px;
+    box-sizing: border-box;
+
+}
+
+.READMORE:hover {
+    background-color: hsl(178, 11%, 51%);
+}
+
+/* animación  */
+.loading {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .list-item {
+        flex: 100%; 
+        max-width: 100%;
+    }
+}
