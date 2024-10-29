@@ -141,6 +141,106 @@ main {
     margin-bottom: 20px;
 }
 
+/* -----------------------------VER LIBROS -------------------------*/
+.book-list {
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 40px; 
+    justify-content: space-around; 
+    margin: 0 auto; 
+}
+
+/* Estilo para cada libro */
+.book-item {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex: 500px ;
+    box-sizing: border-box; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+}
+
+/* Efecto hover */
+.book-item:hover {
+    transform: translateY(-5px);
+}
+
+/* Título del libro */
+.book-item h4 {
+    font-size: 24px;
+    margin-bottom: 5px;
+    color: #333;
+    
+}
+
+/* Descripción del libro */
+.book-item p {
+    font-size: 20px;
+    color: #666;
+    margin-top: 10px;
+
+}
+
+/* Imagen del libro */
+.book-item img {
+    max-width: 250px;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.buy-button {
+    background-color: hsl(28, 81%, 49%); 
+    border: none; 
+    color: white; 
+    padding: 10px 15px; 
+    text-align: center; 
+    text-decoration: none; 
+    display: inline-block; 
+    font-size: 16px; 
+    cursor: pointer; 
+    border-radius: 5px; 
+}
+
+/* Estilo para el botón de retorno */
+.button {
+  
+    background-color: #28a745; 
+    color: white; 
+    padding: 12px 24px; 
+    border: none; 
+    border-radius: 5px; 
+    font-size: 18px; 
+    transition: background-color 0.3s; 
+    margin: 10px auto; 
+    width: 100%; 
+ 
+}
+
+
+.button:hover {
+    background-color: #218838; /* Color de fondo más oscuro al pasar el mouse */
+}
+
+
+.button:active {
+    background-color: #1e7e34; /* Color de fondo aún más oscuro al hacer clic */
+}
+
+
+
+
+
+
+/* -----------------------------MOVIL-------------------------*/
+
+
 @media (max-width: 768px) {
     .list-item {
         flex: 100%; 
