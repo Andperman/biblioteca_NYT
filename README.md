@@ -57,4 +57,4 @@ Este proyecto ofrecerá un dashboard que mostrará las listas disponibles en la 
 
 ## 🌐 GitHub Pages
 
-Puedes visualizar el proyecto en GitHub Pages a través del siguiente enlace: [Libros Más Vendidos biblioteca NYTimes](https://andperman.github.io/biblioteca_NYT/registro.html) 
+Puedes visualizar el proyecto en GitHub Pages a través del siguiente enlace: [Libros Más Vendidos biblioteca NYTimes](https://andperman.github.io/biblioteca_NYT/) 
