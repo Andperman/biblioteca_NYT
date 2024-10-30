@@ -55,6 +55,15 @@ Este proyecto ofrecerá un dashboard que mostrará las listas disponibles en la 
 
 <img src="https://raw.githubusercontent.com/Andperman/biblioteca_NYT/main/media/R4.png" alt="FaseIII " width="200"/>
 
+## 🚀 Pasos Futuros
+
+- **🔍 Filtro de Temáticas**  
+  Crear un filtro para que los usuarios puedan explorar libros por temáticas.
+
+- **📚 Enlace de Amazon**  
+  Añadir enlaces a Amazon en los libros favoritos de los usuarios.
+
+
 ## 🌐 GitHub Pages
 
 Puedes visualizar el proyecto en GitHub Pages a través del siguiente enlace: [Libros Más Vendidos biblioteca NYTimes](https://andperman.github.io/biblioteca_NYT/) 
