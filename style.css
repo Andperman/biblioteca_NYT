@@ -233,7 +233,100 @@ main {
     background-color: #1e7e34; /* Color de fondo aún más oscuro al hacer clic */
 }
 
+/* -----------------------------FORMULARIO-------------------------*/
+.forms {
+    background-color: hsl(202, 38%, 71%);
+    font-family: Arial, sans-serif;
+    color: #000501;
+    
+}
 
+form{
+    width:100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+form > div{
+    width: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0.3rem auto;
+}
+
+input{
+    width: 60%;
+}
+
+label{
+    width: 60%;
+}
+
+button{
+    font-family: Arial, sans-serif;
+    background-color: #b0bca3de;
+    border: none;
+    padding: 0.25rem;
+    width: 5rem;
+    border-radius: 5px;
+    margin: 0.5rem auto;
+}
+
+button:hover{
+    cursor: pointer;
+    background-color: hsl(94, 75%, 72%);
+}
+
+p{
+    text-align: center;
+}
+
+img{
+    margin-left: auto;
+    margin-right: auto;
+    height: 6rem;
+    width: 6rem;
+}
+
+#signup{
+    background-color: rgb(237, 196, 158);
+    width: 50%;
+    margin: 2rem auto;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+#login{
+    background-color: #c4c19f;
+    width: 50%;
+    margin: 2rem auto;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+#logout-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#msgerr{
+    font-family: Arial, Helvetica, sans-serif;
+    color: red;
+}
+ 
+
+
+/* Adaptación a pantallas pequeñas */
+@media (max-width: 768px) {
+    .main-form-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+}
 
 
 
