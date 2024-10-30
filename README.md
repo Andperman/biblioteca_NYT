@@ -1,6 +1,6 @@
 # 📚 Biblioteca de Libros Más Vendidos
 
-(https://github.com/Andperman/biblioteca_NYT/raw/main/media/bestsellers.png)
+https://github.com/Andperman/biblioteca_NYT/raw/main/media/bestsellers.png
 
 Crear una biblioteca de los libros más vendidos por temática utilizando la API de NYTimes. 
 Este proyecto ofrecerá un dashboard que mostrará las listas disponibles en la Books API.
