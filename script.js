@@ -1,14 +1,13 @@
 //Clave api 
 const apiKey = 'n2hFHOYmkZlzUPwCEDmEfj9q3fsE97dE';
-const booksContainer = document.getElementById('booksContainer'); //principal todos los libros se muestran la lista de los libros 
-const loading = document.getElementById('loading'); //muestra mensaje o animación mientras se optiene la información de la API
+const booksContainer = document.getElementById('booksContainer'); //elemento DOM, muestra todo 
+const loading = document.getElementById('loading'); //foto mientras se optiene la información de la API
 
 async function listaTematica() {
   try {
     const response = await fetch(`https://api.nytimes.com/svc/books/v3/lists/names.json?api-key=${apiKey}`);
     const data = await response.json();
 
-    // Ocultar la animación de carga
     loading.style.display = 'none';
 
     // Crear y mostrar las listas
@@ -25,6 +24,7 @@ async function listaTematica() {
                 <p>Updated: ${list.updated}</p>
                 <a href="#" class="READMORE" data-list="${list.list_name}">READ MORE</a>
             `;
+      //data-list atributo que contiene el nombre de los libros
       booksContainer.appendChild(listItem);
     });
     booksContainer.addEventListener('click', function (event) {
@@ -146,7 +146,7 @@ function displayUserData(user) {
   });
 }
 
-// Función para añadir a favoritos
+// Función para añadir a favoritos el titulo del libro 
 async function addToFavorites(bookTitle, userEmail) {
   const favoritesRef = doc(db, "users", userEmail);
 
@@ -157,7 +157,7 @@ async function addToFavorites(bookTitle, userEmail) {
     console.log(`Added ${bookTitle} to favorites.`);
 
     // Mostrar alerta
-    alert(`${bookTitle} guardado en favoritos!`);
+    alert(`${bookTitle} Added to favorites.!`);
 
     // Actualizar el perfil para mostrar los nuevos favoritos
     displayFavorites(userEmail);
@@ -167,19 +167,21 @@ async function addToFavorites(bookTitle, userEmail) {
 }
 
 
-// Función para mostrar los libros favoritos
+// Función para mostrar los libros favoritos de un usuario en el DOM
+//obtenemos los datos del usuario para entrar en su lista de fav
 async function displayFavorites(userEmail) {
   const favoritesRef = doc(db, "users", userEmail);
   const docSnap = await getDoc(favoritesRef);
 
   if (docSnap.exists()) {
+    //cogemos la lista de favoritos y sino hay se creaun array vacio 
     const userFavorites = docSnap.data().favorites || [];
-    const favoritesList = document.getElementById('user-favorites'); // Asegúrate de tener un elemento en el DOM para mostrar los favoritos
-    favoritesList.innerHTML = ''; // Limpiar la lista de favoritos
-
+    const favoritesList = document.getElementById('user-favorites');
+    favoritesList.innerHTML = '';
+    //iteramos sobre cada titulo en la lista.fav para crear p 
     userFavorites.forEach(title => {
       const favoriteItem = document.createElement('p');
-      favoriteItem.textContent = title; // Mostrar el título del libro
+      favoriteItem.textContent = title;
       favoritesList.appendChild(favoriteItem);
     });
   } else {
@@ -189,6 +191,7 @@ async function displayFavorites(userEmail) {
 
 
 // Función para registrar un nuevo usuario
+//comprobar primero si el formulario esta predente e
 if (document.body.contains(signUpForm)) {
   signUpForm.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -197,10 +200,21 @@ if (document.body.contains(signUpForm)) {
     const signUpUser = document.getElementById('signup-user').value;
     const signUpImg = document.getElementById('signup-picture').files[0];
     const storageRef = ref(storage, signUpImg.name);
-    //Se crea una referencia en Firebase Storage para la imagen del usuario, nombrada como el archivo original 
-    //(signUpImg.name). Esto permite almacenar 
-    //la imagen de perfil en una ruta específica en el almacenamiento.
+    // nuevo documento en la colección "users" en Firestore, almacenando 
+    // el nombre de usuario, el correo y la URL de la imagen de perfil.
+ 
 
+    const emailPattern = /^[a-zA-Z0-9]{2,}@[a-zA-Z]{3,}\.(?:[a-zA-Z]{2,4})$/;
+ 
+    if (!emailPattern.test(signUpEmail)) {
+      alert("Correo electrónico no válido.");
+      return; 
+    }
+    const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    if (!passwordPattern.test(signUpPassword)) {
+      alert("La contraseña debe tener al menos 8 caracteres, incluir una letra mayúscula, una minúscula, un número y un carácter especial.");
+      return;
+    }
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword);
       console.log('User registered');
@@ -243,7 +257,7 @@ if (document.body.contains(loginForm)) {
 // Función para cerrar sesión 
 if (document.body.contains(logoutButton)) {
   logoutButton.addEventListener('click', () => {
-    const confirmation = confirm("¿Desea salir del perfil?");
+    const confirmation = confirm("Do you want to go out?");
     if (confirmation) {
       signOut(auth).then(() => {
         console.log('User logged out');
