@@ -1,0 +1,370 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+header {
+    text-align: center; 
+    background-color: hsla(75, 77%, 5%, 0.699); 
+    color: white;
+    padding: 10px 0; 
+    margin-bottom: 40px;;
+}
+
+h1 {
+    font-size: 80px;
+    font-family:"Comic Sans";
+    margin-bottom: 0 ;
+}
+
+.logo {
+    width: 300px; 
+    height: auto;
+    margin: 20px 0; 
+}
+
+nav {
+    background-color: hwb(72 96% 0%); 
+    padding: 25px;
+    font-size: 25px;
+    font-family:"Comic Sans" ;
+}
+
+nav ul {
+    list-style-type: none; 
+    padding: 0;
+    margin: 0; 
+    display: flex; 
+    justify-content: center; 
+}
+
+nav ul li {
+    margin: 0 15px; 
+}
+
+nav a {
+    text-decoration: none; 
+    color: #333; 
+    padding: 10px;
+}
+
+nav a:hover {
+    background-color: hsla(94, 25%, 24%, 0.786); 
+    border-radius: 5px; 
+}
+
+main {
+    padding: 20px;
+}
+
+
+
+
+/* -----------------------------Temáticas -------------------------*/
+.booksContainer {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 40px; 
+    justify-content: space-between;
+    margin-left: 30px; 
+    margin-right: 30px; 
+}
+
+/* Cada temática */
+.list-item {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    flex: 400px;
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 15px 0;
+}
+
+ 
+.list-item:hover {
+    transform: translateY(-5px);
+}
+
+/* Título de temática */
+.list-item h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Línea de separación */
+.list-item hr {
+    border: 0;
+    height: 1px;
+    background-color: #ddd;
+    margin: 15px 0;
+}
+
+/* Estilo párrafos */
+.list-item p {
+    font-size: 20px;
+    color: #666;
+    margin: 7px 0;
+}
+
+/* Botón temática*/
+.READMORE {
+    display: inline-block;
+    font-family:"Comic Sans";
+    margin-top: 20px;
+    padding: 16px; 
+    background-color: hsl(211, 27%, 70%);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 20px;
+    transition: background-color 0.3s;
+    text-align: center;
+    width: 160px;
+    box-sizing: border-box;
+
+}
+
+.READMORE:hover {
+    background-color: hsl(178, 11%, 51%);
+}
+
+/* animación  */
+.loading {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* -----------------------------VER LIBROS -------------------------*/
+.book-list {
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 40px; 
+    justify-content: space-around; 
+    margin: 0 auto; 
+}
+
+/* Estilo para cada libro */
+.book-item {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex: 500px ;
+    box-sizing: border-box; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+}
+
+
+.book-item:hover {
+    transform: translateY(-5px);
+}
+
+/* Título del libro */
+.book-item h4 {
+    font-size: 24px;
+    margin-bottom: 5px;
+    color: #333;
+    
+}
+
+
+.book-item p {
+    font-size: 20px;
+    color: #666;
+    margin-top: 10px;
+
+}
+
+
+.book-item img {
+    max-width: 200px;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.buy-button {
+    background-color: hsl(28, 81%, 49%); 
+    border: none; 
+    color: white; 
+    padding: 10px 15px; 
+    text-align: center; 
+    text-decoration: none; 
+    display: inline-block; 
+    font-size: 16px; 
+    cursor: pointer; 
+    border-radius: 5px; 
+}
+
+/* Estilo para el botón de retorno */
+.button {
+  
+    background-color: hsla(136, 12%, 56%, 0.925); 
+    color: white; 
+    padding: 12px 24px; 
+    border: none; 
+    border-radius: 5px; 
+    font-size: 18px; 
+    transition: background-color 0.3s; 
+    margin: 10px auto; 
+    width: 100%; 
+ 
+}
+
+
+.button:hover {
+    background-color: hsla(135, 5%, 16%, 0.925); 
+}
+
+
+
+/* -----------------------------FORMULARIO-------------------------*/
+.forms {
+    background-color: hsl(202, 38%, 71%);
+    font-family: Arial, sans-serif;
+    color: #000501;
+    
+}
+
+form{
+    width:100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+form > div{
+    width: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0.3rem auto;
+}
+
+input{
+    width: 60%;
+}
+
+label{
+    width: 60%;
+}
+
+button{
+    font-family: Arial, sans-serif;
+    background-color: #b0bca3de;
+    border: none;
+    padding: 0.25rem;
+    width: 5rem;
+    border-radius: 5px;
+    margin: 0.5rem auto;
+}
+
+button:hover{
+    cursor: pointer;
+    background-color: hsl(94, 75%, 72%);
+}
+
+p{
+    text-align: center;
+}
+
+img{
+    max-width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+   
+}
+
+#signup{
+    background-color: rgb(237, 196, 158);
+    width: 50%;
+    margin: 2rem auto;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+#login{
+    background-color: #c4c19f;
+    width: 50%;
+    margin: 2rem auto;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+#logout-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#msgerr{
+    font-family: Arial, Helvetica, sans-serif;
+    color: red;
+}
+ 
+
+
+
+
+
+
+/* -----------------------------MOVIL-------------------------*/
+
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 50px; 
+    }
+    nav {
+        padding: 15px;
+        font-size: 18px; 
+    }
+    nav ul {
+        flex-direction: column; 
+        align-items: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .list-item {
+        flex: 100%; 
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-form-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 768px) {
+    form > div {
+        width: 90%; 
+        flex-direction: column; 
+        align-items: center;
+    }
+    input, label {
+        width: 90%; 
+    }
+    #signup, #login {
+        width: 90%; 
+    }
+    img {
+        max-width: 150px; 
+    }
+}
