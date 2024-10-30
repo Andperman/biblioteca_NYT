@@ -225,7 +225,7 @@ main {
 
 
 .button:hover {
-    background-color: hsla(135, 5%, 16%, 0.925); /* Color de fondo más oscuro al pasar el mouse */
+    background-color: hsla(135, 5%, 16%, 0.925); 
 }
 
 
@@ -326,18 +326,17 @@ img{
 
 @media (max-width: 768px) {
     h1 {
-        font-size: 50px; /* Reduce el tamaño de la fuente del título */
+        font-size: 50px; 
     }
     nav {
         padding: 15px;
-        font-size: 18px; /* Reduce el tamaño de la fuente de navegación */
+        font-size: 18px; 
     }
     nav ul {
-        flex-direction: column; /* Cambia la dirección de la lista a columna */
+        flex-direction: column; 
         align-items: center;
     }
 }
-
 
 @media (max-width: 768px) {
     .list-item {
@@ -346,8 +345,6 @@ img{
     }
 }
 
-
-/* Adaptación a pantallas pequeñas */
 @media (max-width: 768px) {
     .main-form-wrapper {
         flex-direction: column;
@@ -365,9 +362,9 @@ img{
         width: 90%; 
     }
     #signup, #login {
-        width: 90%; /* Ajusta el ancho de las secciones de registro e inicio de sesión */
+        width: 90%; 
     }
     img {
-        max-width: 150px; /* Reduce el tamaño de la imagen en pantallas pequeñas */
+        max-width: 150px; 
     }
 }
