@@ -317,13 +317,6 @@ img{
  
 
 
-/* Adaptación a pantallas pequeñas */
-@media (max-width: 768px) {
-    .main-form-wrapper {
-        flex-direction: column;
-        align-items: center;
-    }
-}
 
 
 
@@ -332,8 +325,49 @@ img{
 
 
 @media (max-width: 768px) {
+    h1 {
+        font-size: 50px; /* Reduce el tamaño de la fuente del título */
+    }
+    nav {
+        padding: 15px;
+        font-size: 18px; /* Reduce el tamaño de la fuente de navegación */
+    }
+    nav ul {
+        flex-direction: column; /* Cambia la dirección de la lista a columna */
+        align-items: center;
+    }
+}
+
+
+@media (max-width: 768px) {
     .list-item {
         flex: 100%; 
         max-width: 100%;
+    }
+}
+
+
+/* Adaptación a pantallas pequeñas */
+@media (max-width: 768px) {
+    .main-form-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 768px) {
+    form > div {
+        width: 90%; 
+        flex-direction: column; 
+        align-items: center;
+    }
+    input, label {
+        width: 90%; 
+    }
+    #signup, #login {
+        width: 90%; /* Ajusta el ancho de las secciones de registro e inicio de sesión */
+    }
+    img {
+        max-width: 150px; /* Reduce el tamaño de la imagen en pantallas pequeñas */
     }
 }
