@@ -47,46 +47,56 @@ listaTematica();
 
 async function verLibros(listName) {
 
-    try {
-      const response = await fetch(`https://api.nytimes.com/svc/books/v3/lists/${listName}.json?api-key=${apiKey}`);
-      const data = await response.json();
-  
-      booksContainer.innerHTML = '';
-      booksContainer.appendChild(backButton);
-  
-      const bookGroup = document.createElement('div');
-      bookGroup.className = 'book-list';
+  try {
+    const response = await fetch(`https://api.nytimes.com/svc/books/v3/lists/${listName}.json?api-key=${apiKey}`);
+    const data = await response.json();
 
-      data.results.books.forEach((book, index) => {
-        const bookItem = document.createElement('div');
-        bookItem.className = 'book-item';
-        bookItem.innerHTML = `
+    booksContainer.innerHTML = '';
+    booksContainer.appendChild(backButton);
+
+    const bookGroup = document.createElement('div');
+    bookGroup.className = 'book-list';
+
+    data.results.books.forEach((book, index) => {
+      const bookItem = document.createElement('div');
+      bookItem.className = 'book-item';
+      bookItem.innerHTML = `
                   <h4>#${index + 1} ${book.title}</h4>
                   <p>Weeks on list: ${book.weeks_on_list}</p>
                   <p>Description: ${book.description || 'No hay descripción disponible.'}</p>
                   <img src="${book.book_image}" alt="${book.title}" />
                   <a href="${book.amazon_product_url}" target="_blank" class="buy-button" >Comprar en Amazon</a>
               `;
-  
-        bookGroup.appendChild(bookItem);
-      });
-  
-      booksContainer.appendChild(bookGroup);
-  
-    } catch (error) {
-      console.error('Error loading books', error);
-    }
+      //Añado una estrella si el usuario está logado 
+      const user = auth.currentUser;
+      if (user) {
+        const favoriteButton = document.createElement('button');
+        favoriteButton.textContent = '⭐';
+        favoriteButton.addEventListener('click', () => {
+          addToFavorites(book.title, user.email);
+        });
+
+        bookItem.appendChild(favoriteButton);
+      }
+      bookGroup.appendChild(bookItem);
+    });
+
+    booksContainer.appendChild(bookGroup);
+
+  } catch (error) {
+    console.error('Error loading books', error);
   }
-  
-  //boton volver
-  const backButton = document.createElement('button');
-  backButton.textContent = 'Return';
-  backButton.className = 'button';
-  backButton.addEventListener('click', () => {
-    booksContainer.innerHTML = '';
-    listaTematica();
-  });
-  
+}
+
+//boton volver
+const backButton = document.createElement('button');
+backButton.textContent = 'Return';
+backButton.className = 'button';
+backButton.addEventListener('click', () => {
+  booksContainer.innerHTML = '';
+  listaTematica();
+});
+
 
 /* -----------------------------FIREBASE-------------------------*/
 
@@ -94,6 +104,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.6/firebase
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js";
 import { getFirestore, collection, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-firestore.js";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-storage.js";
+import { updateDoc, arrayUnion } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-firestore.js";
 
 // Configuración de Firebase
 let firebaseConfig = {
@@ -129,9 +140,49 @@ function displayUserData(user) {
                                   <p>Username: ${docSnap.data().username}</p>
                                   <p>Email: ${docSnap.data().email}</p>
                                   <img src="${docSnap.data().profile_picture}" alt="User profile picture">`;
-     
+      // Mostrar favoritos
+      displayFavorites(user.email);
     }
   });
+}
+
+// Función para añadir a favoritos
+async function addToFavorites(bookTitle, userEmail) {
+  const favoritesRef = doc(db, "users", userEmail);
+
+  try {
+    await updateDoc(favoritesRef, {
+      favorites: arrayUnion(bookTitle)
+    });
+    console.log(`Added ${bookTitle} to favorites.`);
+
+    // Mostrar alerta
+    alert(`${bookTitle} guardado en favoritos!`);
+
+    // Actualizar el perfil para mostrar los nuevos favoritos
+    displayFavorites(userEmail);
+  } catch (error) {
+    console.error('Error adding to favorites:', error);
+  }
+}
+// Función para mostrar los libros favoritos
+async function displayFavorites(userEmail) {
+  const favoritesRef = doc(db, "users", userEmail);
+  const docSnap = await getDoc(favoritesRef);
+
+  if (docSnap.exists()) {
+    const userFavorites = docSnap.data().favorites || [];
+    const favoritesList = document.getElementById('user-favorites'); // Asegúrate de tener un elemento en el DOM para mostrar los favoritos
+    favoritesList.innerHTML = ''; // Limpiar la lista de favoritos
+
+    userFavorites.forEach(title => {
+      const favoriteItem = document.createElement('p');
+      favoriteItem.textContent = title; // Mostrar el título del libro
+      favoritesList.appendChild(favoriteItem);
+    });
+  } else {
+    console.log("No such document!");
+  }
 }
 
 // Función para registrar un nuevo usuario
@@ -142,7 +193,7 @@ if (document.body.contains(signUpForm)) {
     const signUpPassword = document.getElementById('signup-pass').value;
     const signUpUser = document.getElementById('signup-user').value;
     const signUpImg = document.getElementById('signup-picture').files[0];
-    const storageRef = ref(storage, signUpImg.name);   
+    const storageRef = ref(storage, signUpImg.name);
     //Se crea una referencia en Firebase Storage para la imagen del usuario, nombrada como el archivo original 
     //(signUpImg.name). Esto permite almacenar 
     //la imagen de perfil en una ruta específica en el almacenamiento.
@@ -166,7 +217,6 @@ if (document.body.contains(signUpForm)) {
     }
   });
 }
-
 
 // Función para iniciar sesión
 if (document.body.contains(loginForm)) {
