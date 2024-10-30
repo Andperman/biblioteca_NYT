@@ -8,7 +8,7 @@ body {
 
 header {
     text-align: center; 
-    background-color: rgb(153, 184, 67); 
+    background-color: hsla(75, 77%, 5%, 0.699); 
     color: white;
     padding: 10px 0; 
     margin-bottom: 40px;;
@@ -23,7 +23,7 @@ h1 {
 .logo {
     width: 300px; 
     height: auto;
-    margin: 40px 0; 
+    margin: 20px 0; 
 }
 
 nav {
@@ -52,7 +52,7 @@ nav a {
 }
 
 nav a:hover {
-    background-color: hsl(95, 55%, 69%); 
+    background-color: hsla(94, 25%, 24%, 0.786); 
     border-radius: 5px; 
 }
 
@@ -166,7 +166,7 @@ main {
     text-align: center; 
 }
 
-/* Efecto hover */
+
 .book-item:hover {
     transform: translateY(-5px);
 }
@@ -179,7 +179,7 @@ main {
     
 }
 
-/* Descripción del libro */
+
 .book-item p {
     font-size: 20px;
     color: #666;
@@ -187,9 +187,9 @@ main {
 
 }
 
-/* Imagen del libro */
+
 .book-item img {
-    max-width: 250px;
+    max-width: 200px;
     height: auto;
     border-radius: 5px;
     margin-bottom: 20px;
@@ -211,7 +211,7 @@ main {
 /* Estilo para el botón de retorno */
 .button {
   
-    background-color: #28a745; 
+    background-color: hsla(136, 12%, 56%, 0.925); 
     color: white; 
     padding: 12px 24px; 
     border: none; 
@@ -225,13 +225,10 @@ main {
 
 
 .button:hover {
-    background-color: #218838; /* Color de fondo más oscuro al pasar el mouse */
+    background-color: hsla(135, 5%, 16%, 0.925); /* Color de fondo más oscuro al pasar el mouse */
 }
 
 
-.button:active {
-    background-color: #1e7e34; /* Color de fondo aún más oscuro al hacer clic */
-}
 
 /* -----------------------------FORMULARIO-------------------------*/
 .forms {
@@ -285,10 +282,10 @@ p{
 }
 
 img{
+    max-width: 200px;
     margin-left: auto;
     margin-right: auto;
-    height: 6rem;
-    width: 6rem;
+   
 }
 
 #signup{

@@ -165,6 +165,8 @@ async function addToFavorites(bookTitle, userEmail) {
     console.error('Error adding to favorites:', error);
   }
 }
+
+
 // Función para mostrar los libros favoritos
 async function displayFavorites(userEmail) {
   const favoritesRef = doc(db, "users", userEmail);
@@ -184,6 +186,7 @@ async function displayFavorites(userEmail) {
     console.log("No such document!");
   }
 }
+
 
 // Función para registrar un nuevo usuario
 if (document.body.contains(signUpForm)) {
@@ -246,6 +249,11 @@ if (document.body.contains(logoutButton)) {
         console.log('User logged out');
         userData.style.cssText = '';
         userData.innerHTML = '';
+        // Vaciar libros fav
+        const favoritesList = document.getElementById('user-favorites');
+        if (favoritesList) {
+          favoritesList.innerHTML = '';
+        }
       }).catch((error) => {
         console.log('Error: ', error);
       });
